@@ -30,7 +30,7 @@ The `start` variable is set to the number of data points (or microseconds) after
 start = 20;
 ```
 
-The `wr` (radial) and `wz` (axial) variables are set to the [1/e^2 beam diameter](https://en.wikipedia.org/wiki/Beam_diameter#1.2Fe2_width) of the focused [point spread function](https://en.wikipedia.org/wiki/Point_spread_function) of the microscope. These values are acquired by measuring the point spread function using subdiffractive fluorescent beads. 
+The `wr` (radial) and `wz` (axial) variables are set to the [1/e^2 beam diameter](https://en.wikipedia.org/wiki/Beam_diameter#1.2Fe2_width) of the focused [point spread function](https://en.wikipedia.org/wiki/Point_spread_function) of the microscope in micrometers. These values are acquired by measuring the point spread function using subdiffractive fluorescent beads. 
 
 ```matlab
 wr = 0.325; %1/e^2 radius in um 
