@@ -18,6 +18,20 @@ The **Point FRAP Fitting** program is a collection of Matlab scripts to analyze 
 - `Example.mat` Example data set for running the program. 
 
 ## Running the software
+The `loadandfit_2model.m` script contains the variables to be configured to run the FRAP fitting analysis. The `data_filename` is set to the .mat file that contains the FRAP data. 
+
+```matlab
+data_filename = 'Example';
+```
+
+The `start` variable is set to the number of data points (or microseconds) after the bleach that the fit begins. This is usually set to a value between 20 to 80. The early time data is subject to ringing in the preamplifer due to the bleaching intensity. For more details see Figure S2 in [this reference.](https://doi.org/10.1021/jp310348s)
+
+```matlab
+start=20;
+```
+
+
+
 
 ## License
 This software is made available under the [MIT License](LICENSE). 
