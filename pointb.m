@@ -87,8 +87,9 @@ psdata = psplot;
 pscon2 = pscon';
 
 x0psc = [0.1 400 0.8]; 
-xpsc = lsqcurvefit('expfit',x0psc,pstime,pscon2);
-fitps = expfit(xpsc,pstime); 
+efit = @(a,t) a(1).*exp(-t./a(2)) + a(3);
+xpsc = lsqcurvefit(efit,x0psc,pstime,pscon2);
+fitps = efit(xpsc,pstime); 
 pstau = xpsc(2);
 psdelta = -xpsc(1); 
 
