@@ -18,7 +18,7 @@ The **Point FRAP Fitting** program is a collection of Matlab scripts to analyze 
 - `Example.mat` Example data set for running the program. 
 
 ## Running the software
-The `loadandfit_2model.m` script contains the variables to be configured to run the FRAP fitting analysis. The `data_filename` is set to the .mat file that contains the FRAP data. 
+The `loadandfit_2model.m` script contains the variables to be configured to run the FRAP fitting analysis. The `data_filename` is set to the .mat file (omitting the extension) that contains the FRAP data. 
 
 ```matlab
 data_filename = 'Example';
@@ -30,7 +30,30 @@ The `start` variable is set to the number of data points (or microseconds) after
 start=20;
 ```
 
+The `wr` (radial) and `wz` (axial) variables are set to the [1/e^2 beam diameter](https://en.wikipedia.org/wiki/Beam_diameter#1.2Fe2_width) of the focused [point spread function](https://en.wikipedia.org/wiki/Point_spread_function) of the microscope. These values are acquired by measuring the point spread function using subdiffractive fluorescent beads. 
 
+```matlab
+wr=0.325; %1/e^2 radius in um 
+wz=0.974; %1/e^2 radius in um 
+```
+
+The `x0` variable is set to the initial guess for the fitting algorithm. If the resulting fits are poor adjust this variable to the best known information. 
+
+```matlab
+x0=[80 1 1];  %initial guess [D (or G) alpha F t=inf]  
+              %the inital guess for F t=0 is supplied by the script
+```
+
+Finally `calci` determines if the 95% confidence intervals are calculated (1 = yes, 0 = no). The script runs faster if the confidence intervals are not calculated. It is useful to turn off the confidence intervals when optimizing the fitting parameters. 
+
+```matlab
+calci = 1;  % Is the 95% confidence interval calculated? (1 = Yes; 0 = No)
+            % Not calculating the 95% CI speeds up the fitting 
+```
+
+Running the script after the parameters are set will generate the output described below. 
+
+## Output
 
 
 ## License
