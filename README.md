@@ -27,21 +27,21 @@ data_filename = 'Example';
 The `start` variable is set to the number of data points (or microseconds) after the bleach that the fit begins. This is usually set to a value between 20 to 80. The early time data is subject to ringing in the preamplifer due to the bleaching intensity. For more details see Figure S2 in [this reference.](https://doi.org/10.1021/jp310348s)
 
 ```matlab
-start=20;
+start = 20;
 ```
 
 The `wr` (radial) and `wz` (axial) variables are set to the [1/e^2 beam diameter](https://en.wikipedia.org/wiki/Beam_diameter#1.2Fe2_width) of the focused [point spread function](https://en.wikipedia.org/wiki/Point_spread_function) of the microscope. These values are acquired by measuring the point spread function using subdiffractive fluorescent beads. 
 
 ```matlab
-wr=0.325; %1/e^2 radius in um 
-wz=0.974; %1/e^2 radius in um 
+wr = 0.325; %1/e^2 radius in um 
+wz = 0.974; %1/e^2 radius in um 
 ```
 
 The `x0` variable is set to the initial guess for the fitting algorithm. If the resulting fits are poor adjust this variable to the best known information. 
 
 ```matlab
-x0=[80 1 1];  %initial guess [D (or G) alpha F t=inf]  
-              %the inital guess for F t=0 is supplied by the script
+x0 = [80 1 1];  %initial guess [D (or G) alpha F t=inf]  
+                %the inital guess for F t=0 is supplied by the script
 ```
 
 Finally `calci` determines if the 95% confidence intervals are calculated (1 = yes, 0 = no). The script runs faster if the confidence intervals are not calculated. It is useful to turn off the confidence intervals when optimizing the fitting parameters. 
