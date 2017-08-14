@@ -15,7 +15,7 @@ The **Point FRAP Fitting** program is a collection of Matlab scripts to analyze 
     - `ptFRAPpscweighted.m`
     - `ptFRAPweighted.m`
 - `savetable_2model.m` Saves the best fit parameters to a text file for importing into Excel for further analysis. 
-- `Example.mat` Example data set for running the program. 
+- `Example.mat` Example data set for running the program. Use `pointb_smallfile.m` for this example data set. 
 - `load_multipt.m` Example script for loading and averaging the raw FRAP data. 
 
 ## Running the software
