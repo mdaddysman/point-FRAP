@@ -30,7 +30,7 @@ The `start` variable is set to the number of data points (or microseconds) after
 start = 20;
 ```
 
-The `wr` (radial) and `wz` (axial) variables are set to the [1/e^2 beam diameter](https://en.wikipedia.org/wiki/Beam_diameter#1.2Fe2_width) of the focused [point spread function](https://en.wikipedia.org/wiki/Point_spread_function) of the microscope in micrometers. These values are acquired by measuring the point spread function using subdiffractive fluorescent beads. 
+The `wr` (radial) and `wz` (axial) variables are set to the [1/e^2 beam diameter](https://en.wikipedia.org/wiki/Beam_diameter#1.2Fe2_width) of the focused [point spread function](https://en.wikipedia.org/wiki/Point_spread_function) of the microscope in micrometers (μm). These values are acquired by measuring the point spread function using subdiffractive fluorescent beads. 
 
 ```matlab
 wr = 0.325; %1/e^2 radius in um 
@@ -44,7 +44,7 @@ x0 = [80 1 1];  %initial guess [D (or G) alpha F t=inf]
                 %the inital guess for F t=0 is supplied by the script
 ```
 
-Finally `calci` determines if the 95% confidence intervals are calculated (1 = yes, 0 = no). The script runs faster if the confidence intervals are not calculated. It is useful to turn off the confidence intervals when optimizing the fitting parameters. 
+Finally, `calci` determines if the 95% confidence intervals are calculated (1 = yes, 0 = no). The script runs faster if the confidence intervals are not calculated. It is useful to turn off the confidence intervals when optimizing the fitting parameters. 
 
 ```matlab
 calci = 1;  % Is the 95% confidence interval calculated? (1 = Yes; 0 = No)
@@ -54,7 +54,16 @@ calci = 1;  % Is the 95% confidence interval calculated? (1 = Yes; 0 = No)
 Running the script after the parameters are set will generate the output described below. 
 
 ## Output
+The script generates 8 figures and a tab seperated (.tsv) file with all of the fitting parameters. The figures below describe the output figures and table. 
 
+![Figure 1](Images/Fig1.png)
+**Figure 1:**  Pre-fitting figures. (A) Output Figure 1. This figure plots the raw data of the bleach and control curves. Careful examination of these curves is necessary to ensure that the FRAP recovery is a real event and not an artifact of the observational photobleaching correction as explained in [reference (see Figure 3)](https://doi.org/10.1021/jp310348s). (B) Output Figure 2. Same data as shown in panel A except the time axis is changed to include the long time points. (C) Output Figure 3. This is the entire FRAP curve plotted on logarithmic time axis in microseconds (μs).  The plot is used to check, before fitting, if the curve looks qualitatively acceptable. (D) Output Figure 4. This figure plots the first 300 μs after bleach on a linear time axis. This plot is used to check of ringing of the preamplifier as explained in [reference (see Figure S2)](https://doi.org/10.1021/jp310348s).  
+
+![Figure 2](Images/Fig2.png)
+**Figure 2:** Post-fitting figures. (A) Output Figure 10. This figure shows the first 620 μs of the control curve and is fit to an exponential decay to determine τPP and δ used in photoswitching correction model. (B) Output Figure 12. The FRAP data are fit using the photoswitching correction model [(reference Eq. 6)](https://doi.org/10.1021/jp310348s) with the anomalous parameter fixed to 1 (Normal Diffusion, red line) or allowed to float (Anomalous Diffusion, orange line). The bottom plot shows the averaged residuals of each of the fits. (C) Output Figure 13. Same data and color scheme as in B except data are fit using  the model without the correction for photoswitching [(reference Eq. 4)](https://doi.org/10.1021/jp310348s). (D) Output Figure 14. This figure plots the raw, un-averaged residuals from the fits in panel B. The top plot shows the residuals from the Normal Diffusion fit and the bottom shows the residuals from the Anomalous Diffusion fit.
+
+![Table 1](Images/Table1.png)
+**Table 1:** Example output table (Example_.tsv). Since the output is plain text the name of Greek variables are used in place of their symbols (e.g. Tau instead of τPP, the photophysics decay constant).  Additionally, F t=0 refers to the bleach depth (the fluorescence at time 0), and F t=inf refers to the final fluorescence intensity (the fluorescence at time infinity).  A value of F t=inf that is less than ~1 indicates the presence of an immobile fraction.  RN is the squared 2 norm of the residual.  BIC and BIC% are the BIC score and percentage of model likelihood respectively [(reference: Materials and Methods section 4)](https://doi.org/10.1021/jp310348s).  Low and High F0 refer to the lower and upper bounds placed on the bleach depth as a replacement for early time points as described in [reference (Supporting Information)](https://doi.org/10.1021/jp310348s). 
 
 ## License
 This software is made available under the [MIT License](LICENSE). 
