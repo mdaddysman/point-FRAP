@@ -1,9 +1,9 @@
 %pointb.m
 global pstime psdata pstau psdelta xpsc
 
-data = open([data_filename '.mat']);
-avg1 = data.avg1;
-avg2 = data.avg2;
+d = open([data_filename '.mat']);
+avg1 = d.avg1;
+avg2 = d.avg2;
 
 xbound1 = [-200 10300];
 xbound2 = [-200 50000];
