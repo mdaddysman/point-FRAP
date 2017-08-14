@@ -22,9 +22,10 @@ tpsc = s:(l+s-1);
 
 opt = optimset('Display','off');
 cont = 1:620; 
-curve = expfit(xpsc,cont); 
+efit = @(a,t) a(1).*exp(-t./a(2)) + a(3);
+curve = efit(xpsc,cont); 
 fitcurve = F0 ./ curve; 
-z = lsqcurvefit('expfit',[psdelta pstau 0.8],cont,fitcurve,[],[],opt);
+z = lsqcurvefit(efit,[psdelta pstau 0.8],cont,fitcurve,[],[],opt);
 
 delta = z(1);
 tau = z(2); 
