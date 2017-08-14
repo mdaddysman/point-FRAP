@@ -7,7 +7,7 @@ The **Point FRAP Fitting** program is a collection of Matlab scripts to analyze 
 
 ## Files in the repository
 - `loadandfit_2model.m` The main script. Runs all of the scripts below. 
-- `pointb.m` or `pointb_smallfile.m` Processes the FRAP data and place the voltages on the proper time axis. Choosing the correct file depends on the input data. 
+- `pointb.m` or `pointb_smallfile.m` Processes the FRAP data and place the voltages on the proper time axis. [Choosing the correct file depends on the input data.](README.md#pointbm-or-pointb_smallfilem) 
 - `FRAPfitweightedpsc_2model.m` Fits the FRAP data to a FRAP model. It is dependant on the functions below.  
     - `meanvals2.m`
     - `ptFRAP.m`
