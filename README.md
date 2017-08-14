@@ -14,6 +14,7 @@ For full details on the FRAP model and procedure see [Revisiting Point FRAP to Q
     - `ptFRAPpscweighted.m`
     - `ptFRAPweighted.m`
 - `savetable_2model.m`
+- `Example.mat`
 
 ## License
 This software is made available under the [MIT License](LICENSE). 
