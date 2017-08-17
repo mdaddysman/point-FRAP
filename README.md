@@ -6,6 +6,7 @@ The **Point FRAP Fitting** program is a collection of Matlab scripts to analyze 
 - For an example application and the use of the distribution model see [RNA polymerase II subunits exhibit a broad distribution of macromolecular assembly states in the interchromatin space of cell nuclei](https://doi.org/10.1021/jp4082933).
 
 ## Files in the repository
+#### Standard Fitting
 - `loadandfit_2model.m` The main script. Runs all of the scripts below. 
 - `pointb.m` or `pointb_smallfile.m` Processes the FRAP data and place the voltages on the proper time axis. [Choosing the correct file depends on the input data.](README.md#pointbm-or-pointb_smallfilem) 
 - `FRAPfitweightedpsc_2model.m` Fits the FRAP data to a FRAP model. It is dependant on the functions below.  
@@ -17,6 +18,11 @@ The **Point FRAP Fitting** program is a collection of Matlab scripts to analyze 
 - `savetable_2model.m` Saves the best fit parameters to a text file for importing into Excel for further analysis. 
 - `Example.mat` Example data set for running the program. Use `pointb_smallfile.m` for this example data set. 
 - `load_multipt.m` Example script for loading and averaging the raw FRAP data. 
+#### Distribution Fitting
+- `fit_to_dist.m` The main script. Requires the following scripts:
+    - `gauss.m`
+    - `distfit_weighted.m`
+    - Also, `pointb.m` or `pointb_smallfile.m`, `ptFRAPpsc.m`, and `ptFRAPpscweighted.m` from the main program. 
 
 ## Running the software
 The `loadandfit_2model.m` script contains the variables to be configured to run the FRAP fitting analysis. The `data_filename` is set to the .mat file (omitting the extension) that contains the FRAP data. 
